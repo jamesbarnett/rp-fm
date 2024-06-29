@@ -49,7 +49,7 @@
   --fs-600: 1.25rem;
   --fs-700: 1.75rem;
   --fs-800: 2.45rem;
-  --fs-900: 2.75rem; 
+  --fs-900: 2.75rem;
 }
 
 /* Andy Bell reset */
@@ -102,7 +102,7 @@ img {
   display: block;
 }
 
-article>*+* {
+article > * + * {
   margin-top: 1em;
 }
 
@@ -184,6 +184,10 @@ article .recipe--section h2 {
   font-size: var(--fs-700);
   font-weight: var(--fw-500);
   color: var(--clr-primary-100);
+}
+
+.recipe--section > table {
+  width: 100%;
 }
 
 .recipe--preparation_time {
@@ -305,14 +309,12 @@ ol.recipe--instructions {
   margin-top: 1rem;
 
   /* min-width: 356px; */
-  dl {
-    position: relative;
-  }
   dt {
     padding-left: 2.5rem;
   }
 
   dd {
+    position: relative;
     color: var(--clr-primary-100);
     font-weight: var(--fw-700);
   }
@@ -321,13 +323,13 @@ ol.recipe--instructions {
     content: "";
     height: 1px;
     background: var(--clr-neutral-400);
-    position: absolute; 
+    position: absolute;
     left: 1rem;
     margin-top: 2.2rem;
   }
 }
 
-@media (width >=40ch) {
+@media (width >= 400px) {
   .wrapper {
     padding-top: 2.5rem;
     border-radius: 1.25rem;
@@ -335,6 +337,7 @@ ol.recipe--instructions {
     margin-right: auto;
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
     width: min(100%, 736px);
   }
 
@@ -348,13 +351,58 @@ ol.recipe--instructions {
     width: min(64ch, 100% - 5rem);
   }
 
-  .nutrition-summary,
   .recipe--section h2,
   .recipe--section ul,
   .recipe--description,
-  .recipe--preparation_time,
-  .nutrition--information {
+  .recipe--preparation_time {
     margin-left: 1rem;
+  }
+
+  .nutrition--information {
+    margin: 0;
+    padding: 0;
+  }
+
+  table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    max-width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 2rem;
+  }
+
+  caption {
+    text-align: start;
+    caption-side: top;
+    margin-left: 0;
+  }
+
+  th,
+  td {
+    padding: 0.75rem 0.75rem 0.75rem 1rem;
+    font-weight: var(--fw-700);
+    color: var(--clr-primary-200);
+  }
+
+  th {
+    text-align: left;
+    padding-left: 2rem;
+    font-weight: var(--fw-400);
+    color: var(--clr-neutral-800);
+  }
+
+  td {
+    width: 51%;
+  }
+
+  table tr {
+    width: inherit;
+    border-bottom: 1px solid var(--clr-neutral-600);
+  }
+
+  table tr:last-child {
+    border-bottom: 0;
   }
 
   .recipe--description {
@@ -379,20 +427,6 @@ ol.recipe--instructions {
     padding-left: 1.75rem;
   }
 
-  .nutrition--information {
-    dl {
-      position: relative;
-    }
-
-    dd:not(:last-child)::after {
-      display: inline-block;
-      left: calc(50vw - 408px);
-      margin-left: 5rem;
-      margin-right: 5rem;
-      width: 652px;
-    }
-  }
-
   .instructions-nutrition-divider {
     width: 95%;
   }
@@ -407,17 +441,5 @@ ol.recipe--instructions {
 
   .recipe {
     width: min(74ch, 100% - 3rem);
-  }
-
-  .nutrition--information {
-    width: 95%;
-  }
-
-  .nutrition--information dt {
-    padding-left: 2.1rem;
-  }
-
-  .nutrition--information dd {
-    margin-left: -0.5rem;
   }
 }
