@@ -304,6 +304,10 @@ ol.recipe--instructions {
   padding-bottom: 2.5rem;
   margin-top: 1rem;
 
+  /* min-width: 356px; */
+  dl {
+    position: relative;
+  }
   dt {
     padding-left: 2.5rem;
   }
@@ -316,12 +320,10 @@ ol.recipe--instructions {
   dd:not(:last-child)::after {
     content: "";
     height: 1px;
-    width: calc(100% - 4rem);
     background: var(--clr-neutral-400);
-    position: absolute;
-    left: 0;
+    position: absolute; 
+    left: 1rem;
     margin-top: 2.2rem;
-    margin-left: 2rem;
   }
 }
 
@@ -383,8 +385,11 @@ ol.recipe--instructions {
     }
 
     dd:not(:last-child)::after {
-      width: 82%;
-      left: 2.5rem;
+      display: inline-block;
+      left: calc(50vw - 408px);
+      margin-left: 5rem;
+      margin-right: 5rem;
+      width: 652px;
     }
   }
 
